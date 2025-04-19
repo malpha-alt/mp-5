@@ -1,14 +1,13 @@
 import { redirect } from 'next/navigation';
 import clientPromise from '../../lib/mongodb';
 
-type AliasPageProps = {
-  params: {
-    alias: string;
-  };
-};
+interface AliasPageProps {
+  params: Promise<{ alias: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
 
 export default async function AliasPage({ params }: AliasPageProps) {
-  const { alias } = params;
+  const { alias } = await params;
 
   const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB);
