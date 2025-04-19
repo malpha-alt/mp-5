@@ -1,12 +1,8 @@
 import { redirect } from 'next/navigation';
 import clientPromise from '../../lib/mongodb';
 
-interface Props {
-  params: { alias: string };
-}
-
-export default async function AliasPage({ params }: Props) {
-  const { alias } = params; // 🛠 Destructure params first properly
+export default async function AliasPage({ params }: { params: { alias: string } }) {
+  const { alias } = params;
 
   const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB);
