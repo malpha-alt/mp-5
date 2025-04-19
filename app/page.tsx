@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { UrlMapping } from '../types';
 
 export default function Home() {
   const [alias, setAlias] = useState('');

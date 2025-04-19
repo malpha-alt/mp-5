@@ -3,14 +3,11 @@ import { MongoClient } from "mongodb";
 const uri = process.env.MONGODB_URI as string;
 const options = {};
 
-let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
+const client = new MongoClient(uri, options);
+const clientPromise = client.connect();
 
 if (!process.env.MONGODB_URI) {
   throw new Error("Please add your Mongo URI to .env.local");
 }
-
-client = new MongoClient(uri, options);
-clientPromise = client.connect();
 
 export default clientPromise;

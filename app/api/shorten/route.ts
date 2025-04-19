@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
   try {
     new URL(url); // Basic backend URL validation
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: "Invalid URL." }, { status: 400 });
   }
 
