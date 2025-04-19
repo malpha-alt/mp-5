@@ -24,7 +24,7 @@ export default function Home() {
       } else {
         setShortenedUrl(`${window.location.origin}/${alias}`);
       }
-    } catch (err) {
+    } catch {
       setError('Something went wrong.');
     }
   };
