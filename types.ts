@@ -1,4 +1,4 @@
-export interface UrlMapping {
+export type UrlMapping = {
     alias: string;
     url: string;
   }
