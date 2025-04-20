@@ -10,7 +10,6 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     try {
       const res = await fetch('/api/shorten', {
         method: 'POST',
@@ -56,11 +55,12 @@ export default function Home() {
       </form>
 
       {shortenedUrl && (
-        <div className="mt-6">
+        <div className="mt-6 flex flex-col gap-2">
           <p className="text-green-600 font-semibold">Shortened URL:</p>
           <a href={shortenedUrl} className="text-blue-500 underline" target="_blank">
             {shortenedUrl}
           </a>
+          <button className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 " onClick={() => navigator.clipboard.writeText(shortenedUrl)}>Copy</button>
         </div>
       )}
 

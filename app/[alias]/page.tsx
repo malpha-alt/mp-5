@@ -3,7 +3,7 @@ import clientPromise from '../../lib/mongodb';
 
 interface AliasPageProps {
   params: Promise<{ alias: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{ [key: string]: string | string[]}>;
 }
 
 export default async function AliasPage({ params }: AliasPageProps) {
